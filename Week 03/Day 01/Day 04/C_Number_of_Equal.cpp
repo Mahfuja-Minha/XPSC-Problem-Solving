@@ -44,18 +44,26 @@ int main()
     {
         cin >> b[i];
     }
-    int l = 0, r = 0, c = 0;
-    while (r < n)
+    ll l = 0, r = 0, result = 0;
+    while (l < m && r < n)
     {
-        if (a[r] == b[l])
+        int c = a[r], count = 0, count1 = 0;
+        while (r < n && a[r] == c)
         {
-            c++, l++;
+            count++, r++;
         }
-        // else
-        // {
-        //     l++;
-        // }
+        while (l < m && c > b[l])
+        {
+            l++;
+        }
+        while (l < m && b[l] == c)
+        {
+            count1++;
+            l++;
+        }
+        result += (1LL * count * count1);
     }
-    cout << c << " ";
+    cout << result << " ";
     return 0;
 }
+
