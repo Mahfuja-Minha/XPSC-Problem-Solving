@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
+
 int main()
 {
     ll n, s;
@@ -10,21 +11,29 @@ int main()
     {
         cin >> a[i];
     }
-    ll l = 0, r = 0, sum = 0, result = 0;
+
+    ll l = 0, r = 0, sum = 0, result = INT_MAX;
+    bool flag = false;
     while (r < n)
     {
         sum += a[r];
-        if (sum >= s)
+        while (sum >= s)
         {
-            result = max(result, r - l + 1);
-        }
-        else
-        {
-            // sum -= a[l];
+            result = min(result, r - l + 1);
+            sum -= a[l];
             l++;
+            flag = true;
         }
         r++;
     }
-    cout << result << '\n';
+    if (!flag)
+    {
+        cout << -1 << '\n';
+    }
+    else
+    {
+        cout << result << '\n';
+    }
+
     return 0;
 }
