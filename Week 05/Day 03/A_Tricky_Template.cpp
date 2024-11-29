@@ -11,20 +11,21 @@ int main()
         string a, b, c;
         cin >> a >> b >> c;
         bool flag = false;
-        for (int i = 1; i <= n; i++)
+        for (int i = 0; i < n; i++)
         {
             if (a[i] != c[i] && b[i] != c[i])
             {
                 flag = true;
+                break;
             }
         }
         if (flag)
         {
-            cout << "NO" << '\n';
+            cout << "YES" << '\n';
         }
         else
         {
-            cout << "YES" << '\n';
+            cout << "NO" << '\n';
         }
     }
 
